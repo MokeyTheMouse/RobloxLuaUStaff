@@ -50,7 +50,7 @@ local function getexploit()
 
 local body = http_request({Url = 'https://httpbin.org/get'; Method = 'GET'}).Body;
 local decoded = game:GetService('HttpService'):JSONDecode(body)
-local hwid_list = {"Syn-Fingerprint", "Exploit-Guid", "Proto-User-Identifier", "Sentinel-Fingerprint"};
+local hwid_list = {"Syn-Fingerprint", "Exploit-Guid", "Proto-User-Identifier", "Sentinel-Fingerprint", "Krnl-Hwid"};
 hwid = "";
 local blacklisted = ("db29c2f93543b6dbfa6c24b16716e88260cbc29912ccdf49b45e3dd52f2d59e0d72229d8016ff28875ec2c791252a64f6611e169ab235356af1ae2ae432d4e47")
 
